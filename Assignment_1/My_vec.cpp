@@ -90,11 +90,13 @@ My_vec::My_vec(const My_vec& vec)
 	{}
 */
 
-	/*ostream& My_vec::operator<<(ostream& out, const My_vec& vec)
+	ostream& My_vec::operator<<(ostream& out, const My_vec& vec)
 	{
+		if (this!=vec)
+		{
 		for (int i=0;i<vec.size;i++)
 			{out<<vec[i];}
 		return out;
-	
-	}*/
+	}
+	}
 
