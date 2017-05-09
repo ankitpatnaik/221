@@ -11,25 +11,34 @@
 using namespace std;
 
 
-void BubbleSort::sort(int A[], int size)			// main entry point
+///#include "sort.h"
+#include <iostream>
+using namespace std;
+
+
+void bubble_sort(int arrayy[5], int size)			// main entry point
 {
-	bool swapped=true;
+	//bool swapped=true;
 	int i,j;
   /* Complete this function with the implementation of bubble sort algorithm 
      Record number of comparisons in variable num_cmps of class Sort
   */
 
-for (i=0;i<size;i++)
+for (i=0;i<size-1;i++)
 	{
-		if (!swapped)
+		//cout<<"Test1";
+		//if (swapped)
 		{
-			for(j=1;j<size;j++)
-				if (A[i]>A[i+1])
+			//cout<<"Test2";
+			for(j=0;j<size-i-1;j++)
+				if (arrayy[j]>arrayy[j+1])
 					{
-						int temp=A[j];
-						A[j]=A[j+1];
-						A[j+1]=temp;          // swapping A[i+1] and A[i]
-						swapped=false;
+						//cout<<"Test3";
+						int temp=arrayy[j];
+						arrayy[j]=arrayy[j+1];
+						arrayy[j+1]=temp;          // swapping A[i+1] and A[i]
+						//swapped=false;
+						//cout<<arrayy[j]<<'\t'<<arrayy[j+1]<<endl;
  					}
 
 		}
@@ -37,4 +46,12 @@ for (i=0;i<size;i++)
 }
 }
 
+int main(){
+int arrayy[]={4,1,7,3,2};
+bubble_sort(arrayy,5);
+
+for (int i=0;i<5;i++)
+	{cout<<arrayy[i]<<endl;}
+
+}
 
