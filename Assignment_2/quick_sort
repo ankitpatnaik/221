@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+#include <math.h>
+
+//goes around pivot
+void my_swap(int* n, int* m)
+{
+	int temp = *n;
+	*n=*m;
+	*m=temp; 
+}
+
+
+int partition(int A[],int low, int high){ // high = size -1
+int i=low-1;
+int pivot=A[high];
+
+
+for (int j=low;j<=high-1;j++)
+	{
+		if (A[j]<=pivot)
+		{
+			i++;
+			my_swap(&A[i],&A[j]);
+		}
+}
+my_swap (&A[i+1],&A[high]);
+return (i+1);
+}
+
+
+void quick_sort(int A[],int low,int high)
+{
+	if (low<high){
+	  	int part = partition(A,low,high);
+	  	// before the pivot
+        quick_sort(A,low,part - 1);
+        
+        //after the pivot
+        quick_sort(A, part+1, high);
+}
+}
+
+
+int main(){
+	int A[]={4,25,12,11};
+	int n=4;
+	quick_sort(A,0,n-1);
+
+	for (int i=0;i<4;i++)
+	{cout<<A[i]<<endl;}
+}
